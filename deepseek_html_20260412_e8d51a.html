@@ -1,0 +1,774 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="description" content="Professional lawn care & yard services in Cape Coral, FL. Flores Nexus Group provides mowing, trimming, pressure washing, and more. Free quotes, no contracts.">
+  <title>Flores Nexus Group | Premium Lawn Care – Cape Coral, FL</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --bg: #061a0d;
+      --card: #0b2e14;
+      --text: #f0faf2;
+      --muted: #b8d9c2;
+      --accent: #3ecf6a;
+      --accent2: #2a9e50;
+      --accent-glow: rgba(62, 207, 106, 0.35);
+      --border: rgba(255, 255, 255, 0.08);
+      --shadow-sm: 0 8px 20px rgba(0, 0, 0, 0.2);
+      --shadow-md: 0 12px 28px rgba(0, 0, 0, 0.3);
+      --transition: all 0.25s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+    }
+
+    body {
+      background: radial-gradient(1200px 700px at 15% 5%, rgba(42, 158, 80, 0.2), transparent 60%),
+                  radial-gradient(900px 600px at 85% 20%, rgba(62, 207, 106, 0.12), transparent 55%),
+                  var(--bg);
+      color: var(--text);
+      font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+      line-height: 1.5;
+      scroll-behavior: smooth;
+    }
+
+    /* custom scroll */
+    ::-webkit-scrollbar { width: 8px; }
+    ::-webkit-scrollbar-track { background: #0a1f10; border-radius: 8px; }
+    ::-webkit-scrollbar-thumb { background: var(--accent2); border-radius: 8px; }
+
+    .container {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 20px 20px 32px;
+    }
+
+    /* animations */
+    @keyframes fadeSlideUp {
+      0% { opacity: 0; transform: translateY(18px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes pulseGlow {
+      0% { box-shadow: 0 0 0 0 rgba(62, 207, 106, 0.3); }
+      70% { box-shadow: 0 0 0 8px rgba(62, 207, 106, 0); }
+      100% { box-shadow: 0 0 0 0 rgba(62, 207, 106, 0); }
+    }
+
+    @keyframes gentleFloat {
+      0% { transform: translateY(0px); }
+      50% { transform: translateY(-4px); }
+      100% { transform: translateY(0px); }
+    }
+
+    .fade-up {
+      animation: fadeSlideUp 0.6s ease-out forwards;
+    }
+
+    /* header & brand */
+    header {
+      display: flex;
+      gap: 20px;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      margin-bottom: 30px;
+      animation: fadeSlideUp 0.5s ease-out;
+    }
+
+    .brand {
+      display: flex;
+      gap: 14px;
+      align-items: center;
+    }
+
+    .logo {
+      width: 52px;
+      height: 52px;
+      background: linear-gradient(145deg, var(--accent2), var(--accent));
+      border-radius: 18px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 28px;
+      box-shadow: 0 6px 14px rgba(0, 0, 0, 0.3);
+      transition: var(--transition);
+    }
+
+    .logo:hover {
+      transform: scale(1.02) rotate(2deg);
+      box-shadow: 0 10px 20px rgba(62, 207, 106, 0.3);
+    }
+
+    h1 {
+      font-size: 1.7rem;
+      font-weight: 700;
+      letter-spacing: -0.3px;
+      background: linear-gradient(135deg, #ffffff, var(--accent));
+      background-clip: text;
+      -webkit-background-clip: text;
+      color: transparent;
+    }
+
+    .subtitle {
+      color: var(--muted);
+      font-size: 0.85rem;
+      font-weight: 500;
+    }
+
+    nav {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .chip {
+      text-decoration: none;
+      color: var(--text);
+      padding: 10px 18px;
+      border-radius: 40px;
+      border: 1px solid var(--border);
+      background: rgba(255, 255, 255, 0.04);
+      font-size: 0.85rem;
+      font-weight: 500;
+      transition: var(--transition);
+      cursor: pointer;
+    }
+
+    .chip:hover {
+      background: rgba(62, 207, 106, 0.15);
+      border-color: var(--accent);
+      transform: translateY(-2px);
+    }
+
+    .chip.primary {
+      background: linear-gradient(115deg, rgba(42, 158, 80, 0.5), rgba(62, 207, 106, 0.25));
+      border-color: rgba(62, 207, 106, 0.6);
+    }
+
+    /* whatsapp bar */
+    .whatsapp-bar {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      background: rgba(37, 211, 102, 0.08);
+      border: 1px solid rgba(37, 211, 102, 0.3);
+      border-radius: 24px;
+      padding: 12px 20px;
+      margin-bottom: 28px;
+      backdrop-filter: blur(2px);
+      transition: var(--transition);
+      animation: fadeSlideUp 0.55s ease-out;
+    }
+
+    .whatsapp-bar:hover {
+      background: rgba(37, 211, 102, 0.13);
+      border-color: #25d366;
+    }
+
+    .whatsapp-bar span {
+      font-size: 2rem;
+      animation: gentleFloat 2s infinite ease-in-out;
+    }
+
+    .wa-btn {
+      margin-left: auto;
+      background: #25d36620;
+      border: 1px solid #25d366;
+      border-radius: 40px;
+      padding: 10px 20px;
+      font-weight: 700;
+      color: white;
+      text-decoration: none;
+      transition: var(--transition);
+    }
+
+    .wa-btn:hover {
+      background: #25d366;
+      transform: scale(1.02);
+      box-shadow: 0 6px 14px rgba(37, 211, 102, 0.3);
+    }
+
+    /* hero */
+    .hero {
+      padding: 32px 28px;
+      border-radius: 32px;
+      border: 1px solid var(--border);
+      background: rgba(0, 0, 0, 0.2);
+      backdrop-filter: blur(1px);
+      margin-bottom: 28px;
+      position: relative;
+      overflow: hidden;
+      transition: var(--transition);
+    }
+
+    .hero:hover {
+      border-color: var(--accent-glow);
+    }
+
+    .hero h2 {
+      font-size: 2.1rem;
+      font-weight: 700;
+      margin-bottom: 14px;
+    }
+
+    .hero h2 span {
+      color: var(--accent);
+      text-shadow: 0 0 6px rgba(62, 207, 106, 0.4);
+    }
+
+    .hero-btn {
+      padding: 12px 24px;
+      border-radius: 36px;
+      border: none;
+      background: linear-gradient(115deg, var(--accent2), var(--accent));
+      color: #021507;
+      font-weight: 700;
+      cursor: pointer;
+      transition: var(--transition);
+      margin-right: 12px;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+    }
+
+    .hero-btn:hover {
+      transform: translateY(-3px);
+      filter: brightness(1.05);
+      box-shadow: 0 12px 20px rgba(62, 207, 106, 0.3);
+    }
+
+    .hero-btn.secondary {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid var(--border);
+      color: var(--text);
+    }
+
+    /* badges */
+    .badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-bottom: 28px;
+    }
+
+    .badge {
+      background: rgba(62, 207, 106, 0.1);
+      border: 1px solid rgba(62, 207, 106, 0.3);
+      border-radius: 60px;
+      padding: 6px 14px;
+      font-size: 0.8rem;
+      transition: var(--transition);
+    }
+
+    .badge:hover {
+      background: rgba(62, 207, 106, 0.2);
+      transform: translateY(-2px);
+    }
+
+    /* grid + cards */
+    .grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 28px;
+      margin-bottom: 40px;
+    }
+
+    @media (min-width: 880px) {
+      .grid {
+        grid-template-columns: 1.2fr 0.9fr;
+      }
+    }
+
+    .card {
+      background: rgba(11, 46, 20, 0.55);
+      backdrop-filter: blur(2px);
+      border: 1px solid var(--border);
+      border-radius: 28px;
+      padding: 24px;
+      transition: var(--transition);
+    }
+
+    .card:hover {
+      border-color: rgba(62, 207, 106, 0.4);
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .service-item {
+      display: flex;
+      gap: 14px;
+      padding: 14px;
+      border-radius: 20px;
+      background: rgba(255, 255, 255, 0.02);
+      border: 1px solid transparent;
+      transition: var(--transition);
+      cursor: pointer;
+    }
+
+    .service-item:hover {
+      background: rgba(62, 207, 106, 0.1);
+      border-color: var(--accent);
+      transform: translateX(6px);
+    }
+
+    .service-icon {
+      font-size: 28px;
+    }
+
+    /* testimonials (new) */
+    .testimonials {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 20px;
+      margin: 32px 0 24px;
+    }
+
+    @media (min-width: 600px) {
+      .testimonials {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    .testimonial-card {
+      background: rgba(0, 0, 0, 0.25);
+      border-radius: 24px;
+      padding: 20px;
+      border-left: 4px solid var(--accent);
+      transition: var(--transition);
+    }
+
+    .testimonial-card:hover {
+      background: rgba(62, 207, 106, 0.07);
+      transform: scale(1.01);
+    }
+
+    /* buttons & forms */
+    .btn {
+      width: 100%;
+      padding: 14px;
+      border-radius: 40px;
+      background: linear-gradient(115deg, rgba(42, 158, 80, 0.7), rgba(62, 207, 106, 0.4));
+      border: none;
+      font-weight: 700;
+      color: white;
+      cursor: pointer;
+      transition: var(--transition);
+      text-align: center;
+    }
+
+    .btn:active { transform: scale(0.97); }
+
+    input, textarea, select {
+      width: 100%;
+      padding: 12px 14px;
+      border-radius: 20px;
+      background: rgba(0, 0, 0, 0.4);
+      border: 1px solid var(--border);
+      color: white;
+      transition: var(--transition);
+    }
+
+    input:focus, textarea:focus, select:focus {
+      border-color: var(--accent);
+      outline: none;
+      box-shadow: 0 0 0 3px rgba(62, 207, 106, 0.2);
+    }
+
+    /* modals enhanced */
+    .modal-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.8);
+      backdrop-filter: blur(10px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      visibility: hidden;
+      opacity: 0;
+      transition: visibility 0.2s, opacity 0.2s ease;
+      z-index: 1000;
+      padding: 20px;
+    }
+
+    .modal-overlay.show {
+      visibility: visible;
+      opacity: 1;
+    }
+
+    .modal {
+      background: #0c2b17f0;
+      backdrop-filter: blur(16px);
+      border: 1px solid rgba(62, 207, 106, 0.4);
+      border-radius: 32px;
+      width: min(580px, 100%);
+      max-height: 90vh;
+      overflow-y: auto;
+      transform: scale(0.96);
+      transition: transform 0.2s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+      box-shadow: var(--shadow-md);
+    }
+
+    .modal-overlay.show .modal {
+      transform: scale(1);
+    }
+
+    .modal-header {
+      padding: 18px 20px;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      background: #0c2b17cc;
+      backdrop-filter: blur(12px);
+    }
+
+    .close-btn {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid var(--border);
+      border-radius: 30px;
+      padding: 6px 12px;
+      cursor: pointer;
+      color: white;
+    }
+
+    .notice {
+      margin-top: 12px;
+      padding: 12px;
+      border-radius: 24px;
+      background: rgba(62, 207, 106, 0.2);
+      display: none;
+      font-size: 0.85rem;
+      text-align: center;
+    }
+
+    .notice.show {
+      display: block;
+      animation: fadeSlideUp 0.2s;
+    }
+
+    .error-msg {
+      color: #ffb3a7;
+      font-size: 0.75rem;
+      margin-top: 4px;
+      padding-left: 12px;
+    }
+
+    footer {
+      text-align: center;
+      margin-top: 40px;
+      padding-top: 20px;
+      border-top: 1px solid var(--border);
+      color: var(--muted);
+    }
+
+    @media (max-width: 560px) {
+      .hero h2 { font-size: 1.6rem; }
+      .container { padding: 16px; }
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+
+  <header>
+    <div class="brand">
+      <div class="logo">🌿</div>
+      <div>
+        <h1>Flores Nexus Group</h1>
+        <div class="subtitle">Lawn Care & Yard Services · Cape Coral, FL</div>
+      </div>
+    </div>
+    <nav>
+      <a class="chip" href="#services">Services</a>
+      <button class="chip primary" id="openAgenda">📅 Free Quote</button>
+      <button class="chip" id="openContacto">Contact Us</button>
+    </nav>
+  </header>
+
+  <div class="whatsapp-bar">
+    <span>💬</span>
+    <p>Prefer to message us directly? <strong>We reply fast on WhatsApp.</strong> Send us a message and we'll get back to you right away.</p>
+    <a class="wa-btn" id="waQuickMsg" href="#">Message on WhatsApp</a>
+  </div>
+
+  <section class="hero">
+    <h2>Your yard, <span>clean & green</span> — next week.</h2>
+    <p style="max-width: 600px;">Flores Nexus Group offers professional lawn care and yard services in Cape Coral and surrounding areas. Request your free quote today and we'll contact you to confirm availability.</p>
+    <div class="hero-btns" style="margin-top: 20px;">
+      <button class="hero-btn" id="heroAgenda">📅 Schedule for Next Week</button>
+      <button class="hero-btn secondary" id="heroContacto">Ask a Question</button>
+    </div>
+  </section>
+
+  <div class="badges">
+    <div class="badge">📍 <strong>Cape Coral, FL</strong></div>
+    <div class="badge">🏢 <strong>LLC Registered</strong> · Flores Nexus Group</div>
+    <div class="badge">⚡ <strong>Fast Response</strong> via WhatsApp</div>
+    <div class="badge">🌱 <strong>No contracts</strong> required</div>
+  </div>
+
+  <div class="grid" id="services">
+    <section class="card">
+      <h3>Our Services</h3>
+      <p class="muted" style="margin-bottom: 16px;">Professional, reliable yard care for residential properties.<br><span style="font-size: 12px;">✨ Click any service to request a quote instantly</span></p>
+      <div class="services">
+        <div class="service-item" data-service="Lawn Mowing & Edging">
+          <div class="service-icon">🌿</div>
+          <div><p class="service-name">Lawn Mowing & Edging</p><p class="service-desc">Clean, precise cuts with neat edging along driveways and beds.</p></div>
+        </div>
+        <div class="service-item" data-service="Yard Cleanup & Debris Removal">
+          <div class="service-icon">🍃</div>
+          <div><p class="service-name">Yard Cleanup & Debris Removal</p><p class="service-desc">Leaves, branches, and garden waste removed — storm prep ready.</p></div>
+        </div>
+        <div class="service-item" data-service="Pressure Washing">
+          <div class="service-icon">🚿</div>
+          <div><p class="service-name">Pressure Washing</p><p class="service-desc">Driveways, patios, fences — removes mold, dirt, and stains.</p></div>
+        </div>
+        <div class="service-item" data-service="Trimming & Bush Pruning">
+          <div class="service-icon">✂️</div>
+          <div><p class="service-name">Trimming & Bush Pruning</p><p class="service-desc">Shrubs, hedges, and ornamental plants shaped neatly.</p></div>
+        </div>
+        <div class="service-item" data-service="Mulching">
+          <div class="service-icon">🪵</div>
+          <div><p class="service-name">Mulching</p><p class="service-desc">Moisture retention and improved appearance for garden beds.</p></div>
+        </div>
+        <div class="service-item" data-service="Sod Installation">
+          <div class="service-icon">🌱</div>
+          <div><p class="service-name">Sod Installation</p><p class="service-desc">New lawn installation with quality sod, perfect for refresh.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <aside>
+      <div class="card" style="margin-bottom: 24px;">
+        <h3>Quick Booking</h3>
+        <div class="shortcuts" style="display: flex; flex-direction: column; gap: 12px;">
+          <button class="btn" id="agendaBtn">📅 Schedule for Next Week</button>
+          <button class="btn secondary" id="contactoBtn" style="background: rgba(255,255,255,0.05);">📩 Send Us a Message</button>
+        </div>
+      </div>
+      <div class="card">
+        <h3>Why Flores Nexus Group?</h3>
+        <div class="services">
+          <div class="service-item" style="cursor:default;"><div class="service-icon">📍</div><div><p class="service-name">Local & Reliable</p><p class="service-desc">Based in Cape Coral — we show up on time.</p></div></div>
+          <div class="service-item" style="cursor:default;"><div class="service-icon">💬</div><div><p class="service-name">WhatsApp Communication</p><p class="service-desc">No phone tag. Get a real reply fast.</p></div></div>
+          <div class="service-item" style="cursor:default;"><div class="service-icon">🤝</div><div><p class="service-name">No Contracts</p><p class="service-desc">Schedule when you need us. Zero long-term commitments.</p></div></div>
+        </div>
+      </div>
+    </aside>
+  </div>
+
+  <!-- Testimonials section (extra UX layer) -->
+  <div class="testimonials">
+    <div class="testimonial-card">
+      <p style="font-size: 1.8rem;">⭐️⭐️⭐️⭐️⭐️</p>
+      <p>"Flores Nexus transformed my lawn! Reliable, fast, and great communication via WhatsApp. Highly recommend them in Cape Coral."</p>
+      <p style="margin-top: 10px;"><strong>— Sarah M.</strong></p>
+    </div>
+    <div class="testimonial-card">
+      <p style="font-size: 1.8rem;">⭐️⭐️⭐️⭐️⭐️</p>
+      <p>"Pressure washing service was top-notch. They arrived on time and left my driveway looking new. Will book again."</p>
+      <p style="margin-top: 10px;"><strong>— James T.</strong></p>
+    </div>
+  </div>
+
+  <footer>
+    © <span id="year"></span> <strong>Flores Nexus Group LLC</strong> · Cape Coral, FL · Professional Lawn Care & Yard Services
+  </footer>
+</div>
+
+<!-- MODAL: AGENDA -->
+<div class="modal-overlay" id="modalAgenda">
+  <div class="modal">
+    <div class="modal-header"><h3>📅 Schedule for Next Week</h3><button class="close-btn" id="closeAgenda">✕</button></div>
+    <div class="modal-body">
+      <p class="muted">Fill out the form and we'll contact you via WhatsApp to confirm.</p>
+      <form class="form" id="agendaForm">
+        <div style="margin-bottom: 12px;"><label>Full Name *</label><input id="agendaNombre" name="nombre" placeholder="Your name"></div>
+        <div style="margin-bottom: 12px;"><label>Phone Number *</label><input id="agendaTelefono" name="telefono" placeholder="(239) 000-0000"></div>
+        <div style="margin-bottom: 12px;"><label>Property Address *</label><input id="agendaDireccion" name="direccion" placeholder="Street address, Cape Coral, FL"></div>
+        <div style="margin-bottom: 12px;"><label>Service Needed</label><select id="agendaServicio" name="servicio">
+          <option value="">Select a service</option>
+          <option>Lawn Mowing & Edging</option><option>Yard Cleanup & Debris Removal</option>
+          <option>Pressure Washing</option><option>Trimming & Bush Pruning</option>
+          <option>Mulching</option><option>Sod Installation</option>
+          <option>Multiple services (explain below)</option>
+        </select></div>
+        <div style="margin-bottom: 12px;"><label>Preferred Time</label><select id="agendaHorario" name="horario"><option>Morning (7am – 12pm)</option><option>Afternoon (12pm – 5pm)</option><option>Any time works</option></select></div>
+        <div style="margin-bottom: 12px;"><label>Additional Details</label><textarea id="agendaMensaje" name="mensaje" placeholder="Property size, gate code, etc."></textarea></div>
+        <button class="btn" type="submit" id="agendaSubmitBtn">📲 Send via WhatsApp</button>
+        <div class="notice" id="agendaSuccess"></div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<!-- MODAL: CONTACT -->
+<div class="modal-overlay" id="modalContacto">
+  <div class="modal">
+    <div class="modal-header"><h3>📩 Contact Us</h3><button class="close-btn" id="closeContacto">✕</button></div>
+    <div class="modal-body">
+      <p class="muted">Send us your information and we'll reach out.</p>
+      <form class="form" id="contactoForm">
+        <div style="margin-bottom: 12px;"><label>Full Name *</label><input id="contactoNombre" name="nombre" placeholder="Your name"></div>
+        <div style="margin-bottom: 12px;"><label>Phone Number *</label><input id="contactoTelefono" name="telefono" placeholder="(239) 000-0000"></div>
+        <div style="margin-bottom: 12px;"><label>City / Address (optional)</label><input id="contactoDireccion" name="direccion" placeholder="Cape Coral, FL"></div>
+        <div style="margin-bottom: 12px;"><label>How can we help? *</label><textarea id="contactoMensaje" name="mensaje" placeholder="Tell us what you need..."></textarea></div>
+        <button class="btn" type="submit" id="contactSubmitBtn">📲 Send via WhatsApp</button>
+        <div class="notice" id="contactoSuccess"></div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<script>
+  // CONFIG (update with your real WhatsApp number)
+  const WA_NUMBER = "12395550000";  // <-- Replace with actual number (no +)
+  
+  // Helper
+  function waLink(msg) { return `https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(msg)}`; }
+  document.getElementById("waQuickMsg").href = waLink("Hi! I'm interested in lawn care services from Flores Nexus Group. Can you help me?");
+
+  // Modal controls with smooth UX
+  const agendaModal = document.getElementById("modalAgenda");
+  const contactModal = document.getElementById("modalContacto");
+  function openModal(modal) { modal.classList.add("show"); document.body.style.overflow = "hidden"; }
+  function closeModal(modal) { modal.classList.remove("show"); document.body.style.overflow = ""; }
+
+  document.getElementById("openAgenda")?.addEventListener("click", () => openModal(agendaModal));
+  document.getElementById("heroAgenda")?.addEventListener("click", () => openModal(agendaModal));
+  document.getElementById("agendaBtn")?.addEventListener("click", () => openModal(agendaModal));
+  document.getElementById("openContacto")?.addEventListener("click", () => openModal(contactModal));
+  document.getElementById("heroContacto")?.addEventListener("click", () => openModal(contactModal));
+  document.getElementById("contactoBtn")?.addEventListener("click", () => openModal(contactModal));
+  document.getElementById("closeAgenda")?.addEventListener("click", () => closeModal(agendaModal));
+  document.getElementById("closeContacto")?.addEventListener("click", () => closeModal(contactModal));
+  [agendaModal, contactModal].forEach(modal => {
+    modal.addEventListener("click", (e) => { if (e.target === modal) closeModal(modal); });
+  });
+  document.addEventListener("keydown", (e) => { if (e.key === "Escape") { closeModal(agendaModal); closeModal(contactModal); } });
+
+  // ---- Service items prefill logic (click any service) ----
+  const serviceItems = document.querySelectorAll(".service-item[data-service]");
+  serviceItems.forEach(item => {
+    item.addEventListener("click", (e) => {
+      e.stopPropagation();
+      const serviceName = item.getAttribute("data-service");
+      if (serviceName) {
+        openModal(agendaModal);
+        const serviceSelect = document.getElementById("agendaServicio");
+        if (serviceSelect) {
+          for (let opt of serviceSelect.options) {
+            if (opt.value === serviceName) {
+              opt.selected = true;
+              break;
+            }
+          }
+        }
+        // optional smooth scroll to highlight
+        const modalBody = agendaModal.querySelector(".modal-body");
+        if(modalBody) modalBody.scrollTop = 0;
+      }
+    });
+  });
+
+  // ---- VALIDATION helpers ----
+  function validateName(name) { return name && name.trim().length >= 2; }
+  function validatePhone(phone) { const digits = phone.replace(/\D/g, ''); return digits.length >= 9; }
+  function validateAddress(addr) { return addr && addr.trim().length > 3; }
+
+  function showFieldError(inputEl, message) {
+    let errDiv = inputEl.parentElement.querySelector(".error-msg");
+    if (!errDiv) {
+      errDiv = document.createElement("div");
+      errDiv.className = "error-msg";
+      inputEl.parentElement.appendChild(errDiv);
+    }
+    errDiv.innerText = message;
+    inputEl.style.borderColor = "#ff8a6f";
+  }
+  function clearFieldError(inputEl) {
+    const errDiv = inputEl.parentElement.querySelector(".error-msg");
+    if (errDiv) errDiv.remove();
+    inputEl.style.borderColor = "";
+  }
+
+  // Agenda form submit (enhanced)
+  const agendaForm = document.getElementById("agendaForm");
+  const agendaSubmitBtn = document.getElementById("agendaSubmitBtn");
+  agendaForm.addEventListener("submit", async (e) => {
+    e.preventDefault();
+    const nombre = document.getElementById("agendaNombre").value.trim();
+    const telefono = document.getElementById("agendaTelefono").value.trim();
+    const direccion = document.getElementById("agendaDireccion").value.trim();
+    const servicio = document.getElementById("agendaServicio").value;
+    const horario = document.getElementById("agendaHorario").value;
+    const mensaje = document.getElementById("agendaMensaje").value;
+    
+    let valid = true;
+    if (!validateName(nombre)) { showFieldError(document.getElementById("agendaNombre"), "Enter your full name"); valid = false; } else { clearFieldError(document.getElementById("agendaNombre")); }
+    if (!validatePhone(telefono)) { showFieldError(document.getElementById("agendaTelefono"), "Valid phone number required (at least 9 digits)"); valid = false; } else { clearFieldError(document.getElementById("agendaTelefono")); }
+    if (!validateAddress(direccion)) { showFieldError(document.getElementById("agendaDireccion"), "Street address required"); valid = false; } else { clearFieldError(document.getElementById("agendaDireccion")); }
+    if (!servicio) { showFieldError(document.getElementById("agendaServicio"), "Select a service"); valid = false; } else { clearFieldError(document.getElementById("agendaServicio")); }
+    
+    if (!valid) return;
+
+    // Disable button, show loading effect
+    const originalText = agendaSubmitBtn.innerText;
+    agendaSubmitBtn.innerText = "⏳ Opening WhatsApp...";
+    agendaSubmitBtn.disabled = true;
+
+    const msg = `🌿 *Flores Nexus Group – Service Request*\n\n👤 Name: ${nombre}\n📞 Phone: ${telefono}\n📍 Address: ${direccion}\n🔧 Service: ${servicio}\n🕐 Preferred Time: ${horario}\n📝 Details: ${mensaje || "None"}\n\nRequesting appointment for *next week*. Please confirm availability.`;
+    window.open(waLink(msg), "_blank");
+
+    const successDiv = document.getElementById("agendaSuccess");
+    successDiv.innerText = "✅ Request sent! We'll contact you shortly on WhatsApp.";
+    successDiv.classList.add("show");
+    setTimeout(() => {
+      closeModal(agendaModal);
+      agendaForm.reset();
+      successDiv.classList.remove("show");
+    }, 1800);
+    setTimeout(() => { agendaSubmitBtn.innerText = originalText; agendaSubmitBtn.disabled = false; }, 2000);
+  });
+
+  // Contact form
+  const contactForm = document.getElementById("contactoForm");
+  const contactSubmitBtn = document.getElementById("contactSubmitBtn");
+  contactForm.addEventListener("submit", (e) => {
+    e.preventDefault();
+    const nombre = document.getElementById("contactoNombre").value.trim();
+    const telefono = document.getElementById("contactoTelefono").value.trim();
+    const mensajeC = document.getElementById("contactoMensaje").value.trim();
+    let validC = true;
+    if (!validateName(nombre)) { showFieldError(document.getElementById("contactoNombre"), "Enter your full name"); validC = false; } else { clearFieldError(document.getElementById("contactoNombre")); }
+    if (!validatePhone(telefono)) { showFieldError(document.getElementById("contactoTelefono"), "Valid phone required"); validC = false; } else { clearFieldError(document.getElementById("contactoTelefono")); }
+    if (!mensajeC) { showFieldError(document.getElementById("contactoMensaje"), "Please tell us how we can help"); validC = false; } else { clearFieldError(document.getElementById("contactoMensaje")); }
+    if (!validC) return;
+
+    const originalText = contactSubmitBtn.innerText;
+    contactSubmitBtn.innerText = "⏳ Sending...";
+    contactSubmitBtn.disabled = true;
+    const direccion = document.getElementById("contactoDireccion").value;
+    const msg = `🌿 *Flores Nexus Group – Contact Message*\n\n👤 Name: ${nombre}\n📞 Phone: ${telefono}\n📍 Location: ${direccion || "Not provided"}\n💬 Message: ${mensajeC}`;
+    window.open(waLink(msg), "_blank");
+    const successDiv = document.getElementById("contactoSuccess");
+    successDiv.innerText = "✅ Message sent! We'll reply shortly.";
+    successDiv.classList.add("show");
+    setTimeout(() => { closeModal(contactModal); contactForm.reset(); successDiv.classList.remove("show"); }, 1600);
+    setTimeout(() => { contactSubmitBtn.innerText = originalText; contactSubmitBtn.disabled = false; }, 2000);
+  });
+
+  document.getElementById("year").innerText = new Date().getFullYear();
+
+  // extra micro-interaction: remove inline errors on input
+  const allInputs = document.querySelectorAll("input, select, textarea");
+  allInputs.forEach(inp => inp.addEventListener("input", function() { clearFieldError(this); }));
+</script>
+</body>
+</html>
